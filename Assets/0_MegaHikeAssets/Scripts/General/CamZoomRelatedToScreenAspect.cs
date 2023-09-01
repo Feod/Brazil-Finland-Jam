@@ -23,7 +23,7 @@ public class CamZoomRelatedToScreenAspect : MonoBehaviour
     {
         aspect = (float)Screen.width / (float)Screen.height;
         aspectReverse = (float)Screen.height / (float)Screen.width;
-        targetCamera.orthographicSize = defaultZoom * (0.333f + aspectReverse*0.666f);
+        targetCamera.orthographicSize = defaultZoom * (0.5f + aspectReverse*0.5f);
         //targetCamera.orthographicSize = defaultZoom * aspectReverse;
 
     }

@@ -91,8 +91,10 @@ public class TouchJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
                     startPosition = dragPosition - joystickSize;
                     touchStart.anchoredPosition = startPosition;
+
+                    joystickSize = joystickSize.normalized * maxDragDistance;
                 }
-                else
+                else if(joystickSize.magnitude > maxDragDistance)
                 {
                     joystickSize = joystickSize.normalized * maxDragDistance;
                 }

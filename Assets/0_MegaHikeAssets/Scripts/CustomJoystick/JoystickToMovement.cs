@@ -17,6 +17,12 @@ public class JoystickToMovement : MonoBehaviour
     void LateUpdate()
     {
         dbMovement.instance.playerJoystick = joystickScript.joystickSize;
+
+
+        if (WasdAndArrows.instance != null && WasdAndArrows.instance.wasdDirection.sqrMagnitude > 0f)
+        {
+            dbMovement.instance.playerJoystick = WasdAndArrows.instance.wasdDirection;
+        }
     }
 
 

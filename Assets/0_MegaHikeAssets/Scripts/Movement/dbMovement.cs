@@ -43,7 +43,8 @@ public class dbMovement : MonoBehaviour
 
 
         //Estimate player position (This is before assignment, because sometimes. Player is just pushing wall)
-        playerPositionInFuture.position = playerRigid.position + playerRigid.velocity * 0.2f;
+        //playerPositionInFuture.position = playerRigid.position + playerRigid.velocity * 0.2f;
+        playerPositionInFuture.position = playerRigid.position + playerRigid.velocity * 0.4f;
 
 
 
