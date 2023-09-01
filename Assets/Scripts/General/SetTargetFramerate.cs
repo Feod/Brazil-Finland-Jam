@@ -5,7 +5,7 @@ using UnityEngine;
 public class SetTargetFramerate : MonoBehaviour
 {
 
-    void Start()
+    void Awake()
     {
         Application.targetFrameRate = 60;
     }

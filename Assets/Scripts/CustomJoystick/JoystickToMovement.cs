@@ -16,7 +16,7 @@ public class JoystickToMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //dbMovement.instance.playerJoystick = joystickScript.joystickSize;
+        dbMovement.instance.playerJoystick = joystickScript.joystickSize;
     }
 
 

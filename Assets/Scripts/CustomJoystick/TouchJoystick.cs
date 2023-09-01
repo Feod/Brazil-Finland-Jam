@@ -12,6 +12,8 @@ public class TouchJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     [SerializeField] private bool lockJoystickCenter;
 
+    [SerializeField] private bool resetJoystickPositionOnRelease;
+
 
     [SerializeField] private RectTransform touchArea = default;
     [SerializeField] private Camera uiCam = default;
@@ -128,9 +130,16 @@ public class TouchJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (OnJoystickRelease != null)
             OnJoystickRelease();
 
-        //Reset joystick positions back to normal start position.
-        touchStart.anchoredPosition = Vector2.zero;
-        touchDrag.anchoredPosition = Vector2.zero;
+        if (resetJoystickPositionOnRelease)
+        {
+            //Reset joystick positions back to normal start position.
+            touchStart.anchoredPosition = Vector2.zero;
+            touchDrag.anchoredPosition = Vector2.zero;
+        }
+        else
+        {
+            touchDrag.anchoredPosition = touchStart.anchoredPosition;
+        }
 
     }
 
