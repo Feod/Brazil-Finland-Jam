@@ -45,7 +45,7 @@ public class VisualPlayerMovement : MonoBehaviour
 
             //angle = Vector2.SignedAngle(new Vector2(-1f, 0f), dbMovement.instance.playerJoystick);
 
-            playerSpriteRenderer.flipX = true;
+            playerSpriteRenderer.flipX = !true;
             playerSpriteRenderer.sprite = playerSprites[2];
         }
         else if (dbMovement.instance.playerJoystick.x > 0.1f)
@@ -53,7 +53,7 @@ public class VisualPlayerMovement : MonoBehaviour
 
             //angle = Vector2.SignedAngle(new Vector2(1f, 0f), dbMovement.instance.playerJoystick);
 
-            playerSpriteRenderer.flipX = false;
+            playerSpriteRenderer.flipX = !false;
             playerSpriteRenderer.sprite = playerSprites[2];
         }
 
