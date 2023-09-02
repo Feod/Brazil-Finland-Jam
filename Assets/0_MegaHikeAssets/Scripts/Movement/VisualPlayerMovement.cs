@@ -13,7 +13,7 @@ public class VisualPlayerMovement : MonoBehaviour
 
 
     //Unity animations
-    [SerializeField] private Animator bunnyAnimator;
+    [SerializeField] private Animator[] bunnyAnimator;
     private bool runstate;
     
 
@@ -71,13 +71,25 @@ public class VisualPlayerMovement : MonoBehaviour
             if(runstate == false)
             {
                 runstate = true;
-                bunnyAnimator.SetBool("running", true);
+                for(int i = 0; i < bunnyAnimator.Length; i++)
+                {
+                    if(bunnyAnimator[i] != null)
+                    {
+                        bunnyAnimator[i].SetBool("running", true);
+                    }
+                }
             }
         }
         else if(runstate == true)
         {
             runstate = false;
-            bunnyAnimator.SetBool("running", false);
+            for (int i = 0; i < bunnyAnimator.Length; i++)
+            {
+                if (bunnyAnimator[i] != null)
+                {
+                    bunnyAnimator[i].SetBool("running", false);
+                }
+            }
 
         }
 

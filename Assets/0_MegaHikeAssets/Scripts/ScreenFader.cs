@@ -41,7 +41,7 @@ public class ScreenFader : MonoBehaviour
 
     void FadeScreenBlack()
     {
-        LeanTween.value(this.gameObject, OnTweenScreen, 0f, 1f, 3f).setOnComplete(OnCompleteScreenBlack);
+        LeanTween.value(this.gameObject, OnTweenScreen, 0f, 1f, 1.4f).setOnComplete(OnCompleteScreenBlack).setEase(LeanTweenType.easeOutQuad);
     }
 
     void OnTweenScreen(float value)
@@ -54,7 +54,7 @@ public class ScreenFader : MonoBehaviour
         if (OnScreenFadedBlack != null)
             OnScreenFadedBlack(true);
 
-        LeanTween.value(this.gameObject, OnTweenScreen, 1f, 0f, 3f).setOnComplete(OnCompleteScreenSeeThrough).setDelay(0.5f);
+        LeanTween.value(this.gameObject, OnTweenScreen, 1f, 0f, 1.4f).setOnComplete(OnCompleteScreenSeeThrough).setDelay(0.2f).setEase(LeanTweenType.easeInQuad);
 
     }
 
