@@ -13,6 +13,7 @@ public class ScreenFader : MonoBehaviour
     [SerializeField] private Image screenFade;
 
     private float timerGoingDown;
+    public bool neverFadeBack;
 
     public static ScreenFader instance;
     private void Awake()
@@ -26,6 +27,7 @@ public class ScreenFader : MonoBehaviour
         timerGoingDown = 3f;
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -38,10 +40,15 @@ public class ScreenFader : MonoBehaviour
         }
 
     }
+    */
 
-    void FadeScreenBlack()
+
+
+    //------
+
+    public void FadeScreenBlack()
     {
-        LeanTween.value(this.gameObject, OnTweenScreen, 0f, 1f, 1.4f).setOnComplete(OnCompleteScreenBlack).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.value(this.gameObject, OnTweenScreen, 0f, 1f, 0.333f).setOnComplete(OnCompleteScreenBlack).setEase(LeanTweenType.easeOutQuad);
     }
 
     void OnTweenScreen(float value)
@@ -54,7 +61,8 @@ public class ScreenFader : MonoBehaviour
         if (OnScreenFadedBlack != null)
             OnScreenFadedBlack(true);
 
-        LeanTween.value(this.gameObject, OnTweenScreen, 1f, 0f, 1.4f).setOnComplete(OnCompleteScreenSeeThrough).setDelay(0.2f).setEase(LeanTweenType.easeInQuad);
+        if(neverFadeBack == false)
+            LeanTween.value(this.gameObject, OnTweenScreen, 1f, 0f, 0.6f).setOnComplete(OnCompleteScreenSeeThrough).setDelay(0.05f).setEase(LeanTweenType.easeInOutQuad);
 
     }
 
@@ -63,5 +71,20 @@ public class ScreenFader : MonoBehaviour
         if (OnScreenFadedBlack != null)
             OnScreenFadedBlack(false);
     }
+
+    //------
+    /*
+    public void FadeScreenBlack_Forever()
+    {
+        LeanTween.value(this.gameObject, OnTweenScreen, 0f, 1f, 0.8f).setOnComplete(OnCompleteScreenBlack_Forever).setEase(LeanTweenType.easeOutQuad);
+    }
+
+    void OnCompleteScreenBlack_Forever()
+    {
+        if (OnScreenFadedBlack != null)
+            OnScreenFadedBlack(true);
+
+    }
+    */
 
 }

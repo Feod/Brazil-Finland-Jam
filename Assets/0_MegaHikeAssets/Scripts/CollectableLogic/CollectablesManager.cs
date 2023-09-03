@@ -27,15 +27,21 @@ public class CollectablesManager : MonoBehaviour
             OnUpdateCollectablesCounter();
     }
 
+    //Collected happening!
     public void ReportCollectableCollected(SingleCollectable thisCollectable)
     {
         collectablesCollected++;
+
+        ScreenFader.instance.FadeScreenBlack();
 
         if (OnUpdateCollectablesCounter != null)
             OnUpdateCollectablesCounter();
 
         if(collectablesCollected >= maxAmountOfCollectables)
         {
+
+            ScreenFader.instance.neverFadeBack = true;
+
 
             if (OnAllCollected != null)
                 OnAllCollected();

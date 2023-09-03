@@ -20,6 +20,10 @@ public class SingleCollectable : MonoBehaviour
             if(collected == false)
             {
                 collected = true;
+
+                ReleaseParticleEmitter.instance.ParticlesHere(this.transform.position);
+                AudioController.Play("Collect");
+
                 CollectablesManager.instance.ReportCollectableCollected(this);
                 this.gameObject.SetActive(false);
             }
