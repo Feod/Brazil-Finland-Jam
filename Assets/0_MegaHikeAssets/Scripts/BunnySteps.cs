@@ -9,7 +9,7 @@ public class BunnySteps : MonoBehaviour
 
     [SerializeField] private Rigidbody2D myRb;
     [SerializeField] private Transform myTrans;
-    private float timeUntilNextStepSound = 1f;
+    private float timeUntilNextStepSound = 0.01f;
 
     private void Update()
     {

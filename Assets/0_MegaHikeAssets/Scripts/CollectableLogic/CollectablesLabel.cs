@@ -8,6 +8,9 @@ public class CollectablesLabel : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI label;
 
+    [SerializeField] private Transform tweenRoot;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,12 @@ public class CollectablesLabel : MonoBehaviour
 
     void UpdateLabel()
     {
+
+        if(LeanTween.isTweening(tweenRoot.gameObject) == false)
+        {
+            LeanTween.scale(tweenRoot.gameObject, tweenRoot.localScale * 1.2f, 0.8f).setEase(LeanTweenType.punch);
+        }
+
         label.text = CollectablesManager.instance.GetCollectedString();
     }
     
